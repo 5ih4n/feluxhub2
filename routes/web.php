@@ -1,10 +1,17 @@
 <?php
 
+use App\Http\Controllers\FeluxvideoController;
 use App\Http\Controllers\ProfileController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
+use Pest\Plugins\Only;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+route::get('/home', function() {
+    return view('/home');
 });
 
 Route::get('/dashboard', function () {
@@ -17,4 +24,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+route::resource('feluxvideos', FeluxvideoController::class) 
+    ->only(['index', 'store', 'edit', 'update', 'destroy'])
+    ->middleware(['auth']); 
+    // kan lägga till email verificiton med verified här
 require __DIR__.'/auth.php';
+
