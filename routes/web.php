@@ -9,7 +9,11 @@ use Pest\Plugins\Only;
 // Route::get('/', [FeluxvideoController::class], 'index');
 Route::get('/', [FeluxvideoController::class, 'index']);
 
-route::get('/home', function() {
+Route::get('/upload', function() {
+    return view('/upload');
+})->middleware(['auth', 'verified'])->name('upload');
+
+Route::get('/home', function() {
     return view('/home');
 });
 
