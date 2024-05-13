@@ -6,9 +6,8 @@ use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use Pest\Plugins\Only;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', [FeluxvideoController::class], 'index');
+Route::get('/', [FeluxvideoController::class, 'index']);
 
 route::get('/home', function() {
     return view('/home');
