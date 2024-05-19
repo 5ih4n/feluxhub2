@@ -10,7 +10,7 @@
             <x-input-error :messages="$errors->get('message')" class="mt-2" />
             <div class="mt-4 space-x-2">
                 <x-primary-button>{{ __('Save') }}</x-primary-button>
-                <a href="{{ route('feluxvideos.index') }}">{{ __('Cancel') }}</a>
+                <a class="text-slate-200" href="{{ route('feluxvideos.index') }}">{{ __('Cancel') }}</a>
             </div>
         </form>
     </div>

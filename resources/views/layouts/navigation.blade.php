@@ -13,10 +13,10 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('feluxvideos.index')" :active="request()->routeIs('feluxvideos.index')">
-                        {{ __('Felux Videos') }}
+                        {{ __('FeluxVideos') }}
                     </x-nav-link>
                     <x-nav-link :href="route('upload')" :active="request()->routeIs('upload')">
-                        {{ __('Upload')}}
+                        {{ __('Ladda Upp')}}
                     </x-nav-link>
                 </div>
             </div>
