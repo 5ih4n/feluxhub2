@@ -28,7 +28,7 @@
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
                             @if(Auth::user()->avatar_path)
-                            <img src="{{ asset(Auth::user()->avatar_path) }}" alt="fuck" class="rounded-full w-8 h-8 mr-4">
+                            <img src="{{ asset(Auth::user()->avatar_path) }}" alt="" class="rounded-full w-8 h-8 mr-4">
                             @endif
                             
                             <div>{{ Auth::user()->name }}</div>
@@ -43,7 +43,7 @@
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
+                            {{ __('Profil') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -53,7 +53,7 @@
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                {{ __('Logga Ut') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
