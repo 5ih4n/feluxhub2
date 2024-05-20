@@ -9,6 +9,9 @@
                     <div class="flex-1">
                         <div class="flex justify-between item-center">
                             <div>
+                                @if($feluxvideo->user->avatar_path)
+                                <img src="{{ asset($feluxvideo->user->avatar_path) }}" alt="fuck" class="rounded-full w-8 h-8 mr-4 inline">
+                                @endif
                                 <span class="text-gray-400">{{ $feluxvideo->user->name }}</span>
                                 <small class="ml-2 text-sm text-gray-400">{{ $feluxvideo->created_at->format('j M Y, g:j a') }}</small>
                                 @unless ($feluxvideo->created_at->eq($feluxvideo->updated_at))

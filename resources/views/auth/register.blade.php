@@ -1,11 +1,17 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('register') }} " enctype="multipart/form-data" >
         @csrf
 
         <!-- Name -->
         <div>
-            <x-input-label for="name" :value="__('Name')" />
+            <x-input-label for="name" :value="__('Namn')" />
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+        </div>
+
+        <div class="mt-4">
+            <x-input-label for="avatar" :value="__('Avatar, Valbart')"/>
+            <x-text-input id="avatar" class="block w-full mt-1" type="file" name="avatar" autofocus autocomplete="avatar" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
@@ -18,7 +24,7 @@
 
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+            <x-input-label for="password" :value="__('Lösenord')" />
 
             <x-text-input id="password" class="block mt-1 w-full"
                             type="password"
@@ -30,7 +36,7 @@
 
         <!-- Confirm Password -->
         <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+            <x-input-label for="password_confirmation" :value="__('Konfirmera Lösenord')" />
 
             <x-text-input id="password_confirmation" class="block mt-1 w-full"
                             type="password"
