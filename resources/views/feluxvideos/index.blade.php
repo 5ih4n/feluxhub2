@@ -29,13 +29,13 @@
                                     </x-slot>
                                     <x-slot name="content">
                                         <x-dropdown-link :href="route('feluxvideos.edit', $feluxvideo)">
-                                            {{ __('Edit')}}
+                                            {{ __('Redigera')}}
                                         </x-dropdown-link>
                                         <form method="POST" action="{{ route('feluxvideos.destroy', $feluxvideo) }}">
                                             @csrf
                                             @method('delete')
                                             <x-dropdown-link :href="route('feluxvideos.destroy', $feluxvideo)" onclick="event.preventDefault(); this.closest('form').submit();"> 
-                                                {{ __('Delete') }}
+                                                {{ __('Radera') }}
                                             </x-dropdown-link>
                                         </form>
                                     </x-slot>
