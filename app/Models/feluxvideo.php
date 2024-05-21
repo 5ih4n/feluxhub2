@@ -11,7 +11,8 @@ class feluxvideo extends Model
     use HasFactory;
 
     protected $fillable = [
-        'message'
+        'message',
+        'media_path'
     ];
 
     public function user(): BelongsTo

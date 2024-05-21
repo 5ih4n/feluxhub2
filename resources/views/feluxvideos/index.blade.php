@@ -44,6 +44,7 @@
                             @endif
                         </div>
                         <p class="mt-4 text-lg text-gray-300">{{ $feluxvideo->message}}</p>
+                        <img src="{{ $feluxvideo->media_path}}" alt="">
                     </div>
                 </div>
             @endforeach

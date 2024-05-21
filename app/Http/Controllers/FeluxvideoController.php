@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\feluxvideo;
+use GuzzleHttp\Psr7\Message;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -33,11 +34,30 @@ class FeluxvideoController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $validated = $request->validate([
+        $request->validate([
             'message' => 'required|string|max:255',
+            'media' => 'nullable','mimes:jpg,jpeg,gif,png','max:20408'
         ]);
 
-        $request->user()->feluxvideos()->create($validated);
+        $avatarPath = null;
+        $filename = null;
+
+        if ($request->hasFile('media')) {
+            $avatarPath = $request->file('media')->storeAs(
+                'media',
+                $request->file('media')->getClientOriginalName(),
+                'public'
+            );
+            $filename = $request->file('media')->getClientOriginalName();
+        }
+
+        $path = 'storage/media/';
+
+
+        $request->user()->feluxvideos()->create([
+            'message' => $request->message,
+            'media_path' => $path.$filename
+        ]);
 
         return redirect(route('feluxvideos.index'));
     }
